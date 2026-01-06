@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Pulso – Personal Productivity Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pulso is a scalable personal productivity dashboard built with React.
+It helps users track tasks, mood, and habits, while providing data-driven insights.
 
-## Available Scripts
+Pulso is designed as a long-term project, evolving from a simple dashboard into a full-featured personal LifeOS.
 
-In the project directory, you can run:
+## Features (Planned & Current)
 
-### `npm start`
+**Phase 1 – Core**
+Focus: building the foundation of the app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Main dashboard layout with a header and content area
+- Task management: add tasks, mark them as complete, and delete them
+- Reusable modal component for forms and confirmations
+- Light and dark theme toggle
+- Clean, reusable UI components (TaskList, TaskItem, Modal, ThemeSwitcher)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Phase 2 – Growth**
+Focus: adding usefulness and flexibility
 
-### `npm test`
+- Habit tracking to monitor daily routines
+- Edit tasks and habits directly from the dashboard
+- Persistent storage using localStorage
+- Dashboard widgets that users can add, remove, or rearrange
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Phase 3 – Advanced**
+Focus: polish, performance, and scale
 
-### `npm run build`
+- Drag-and-drop dashboard layout
+- Interactive charts that show insights from user data
+- Animations and micro-interactions using Framer Motion
+- Centralized state management with Context API and reducers
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Folder Structure (Phase 1)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+pulso/
+├── public/
+│ └── index.html
+│
+├── src/
+│ ├── assets/
+│ │ └── (images, icons, fonts)
+│ │
+│ ├── components/
+│ │ ├── TaskList/
+│ │ ├── TaskItem/
+│ │ ├── Modal/
+│ │ ├── Button.jsx
+│ │ └── ThemeSwitcher.jsx
+│ │
+│ ├── pages/
+│ │ └── Dashboard.jsx
+│ │
+│ ├── hooks/
+│ │ └── (custom React hooks)
+│ │
+│ ├── utils/
+│ │ └── (helper functions)
+│ │
+│ ├── App.jsx
+│ └── index.js
+│
+├── package.json
+└── README.md
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> The folder structure is **modular** to allow growth into a full-featured productivity system.
 
-### `npm run eject`
+## ⚡ Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repo:  
+   git clone https://github.com/yourusername/pulso-dashboard.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. install dependencies:
+   npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. start the development server:
+   npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app should open at http://localhost:3000
 
-## Learn More
+# Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Add tasks via the Add Task button
+- Mark tasks as complete by clicking on them
+- Delete tasks with the delete button
+- Toggle light/dark mode with the Theme Switcher
+- Dashboard and features will expand as new modules are added
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Why Pulso?
 
-### Code Splitting
+Pulso isn’t just another todo app. It’s a personal system dashboard designed for:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Self-awareness: Track patterns in tasks, habits, and mood
+- Productivity: Optimize daily routines
+- Portfolio impact: Showcase a scalable, modern React projec
 
-### Analyzing the Bundle Size
+# Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Nnaukwu Martins Obinna – Aspiring Frontend Developer
