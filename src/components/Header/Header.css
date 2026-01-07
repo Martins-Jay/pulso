@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+
+.theme-btn {
+  padding: 0.4rem 0.6rem
+}

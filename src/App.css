@@ -1,0 +1,12 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1; 
+  width: 100%; /* Fill available space */
+  max-width: 1200px; /* Max width for large monitors to avoid too wide content */
+  margin: 0 auto; /* Center the content horizontally */
+}

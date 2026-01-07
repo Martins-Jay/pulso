@@ -35,5 +35,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Pulso is a scalable personal productivity dashboard built with React. It helps users track tasks, mood, and habits, while providing data-driven insights.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martins-Jay/pulso.git"
+  },
+  "author": "",
+  "license": "ISC"
 }
