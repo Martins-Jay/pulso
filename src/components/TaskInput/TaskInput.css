@@ -1,0 +1,14 @@
+.task-input-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task-input-container input {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.task-input-container button {
+  padding: 0.6rem 1rem;
+}
