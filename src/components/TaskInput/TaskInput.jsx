@@ -1,9 +1,23 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './TaskInput.css';
 
 function TaskInput({ onAddTask }) {
   // Ref to access the input DOM element
   const taskInputRef = useRef();
+
+  useEffect(function () {
+    function callback(e) {
+      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        taskInputRef.current.focus();
+      }
+    }
+
+    document.addEventListener('keydown', callback);
+
+    return function () {
+      document.removeEventListener('keydown', callback);
+    };
+  }, []);
 
   function submitTaskHandler() {
     // Get the task entered by the user
