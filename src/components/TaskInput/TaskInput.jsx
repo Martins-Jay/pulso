@@ -2,22 +2,29 @@ import { useEffect, useRef } from 'react';
 import './TaskInput.css';
 
 function TaskInput({ onAddTask }) {
-  // Ref to access the input DOM element
+  // Ref to access the input DOM element without re-rendering
   const taskInputRef = useRef();
 
   useEffect(function () {
-    function callback(e) {
+    function handleGlobalKeydown(e) {
+      // Focus input when user starts typing anywhere
       if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
         taskInputRef.current.focus();
       }
     }
 
-    document.addEventListener('keydown', callback);
+    document.addEventListener('keydown', handleGlobalKeydown);
 
     return function () {
-      document.removeEventListener('keydown', callback);
+      document.removeEventListener('keydown', handleGlobalKeydown);
     };
   }, []);
+
+  function handleKeyDown(e) {
+    if (e.code === 'Enter') {
+      submitTaskHandler();
+    }
+  }
 
   function submitTaskHandler() {
     // Get the task entered by the user
@@ -37,7 +44,17 @@ function TaskInput({ onAddTask }) {
 
   return (
     <div className="task-input-container">
-      <input type="text" placeholder="Add a new task..." ref={taskInputRef} />
+      {/* Label to improve accessibility even though it is visually hidden */}
+      <label htmlFor="task-input" className="visually-hidden">
+        Add a new task
+      </label>
+
+      <input
+        type="text"
+        placeholder="Add a new task..."
+        onKeyDown={handleKeyDown}
+        ref={taskInputRef}
+      />
 
       <button onClick={submitTaskHandler}>Add</button>
     </div>

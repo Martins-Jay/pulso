@@ -12,3 +12,13 @@
 .task-input-container button {
   padding: 0.6rem 1rem;
 }
+
+/* Accessibility utility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+}
