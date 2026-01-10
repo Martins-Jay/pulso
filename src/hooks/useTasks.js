@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export function useTasks() {
-  // State to store all tasks
   const [tasks, setTasks] = useState([]);
+
+  // Derived state
+  const totalTasks = tasks.length;
+  const completedTaskCount = tasks.filter(
+    (taskObj) => taskObj.isCompleted !== false
+  ).length;
+  const activeTaskCount = totalTasks - completedTaskCount;
 
   function handleAddTask(formattedTask) {
     // Create a new task object
@@ -14,7 +20,6 @@ export function useTasks() {
 
     // Update state with the new task
     setTasks((prevTasks) => [...prevTasks, newTask]);
-    console.log(tasks);
   }
 
   function handleToggleTask(selectedId) {
@@ -31,5 +36,13 @@ export function useTasks() {
     );
   }
 
-  return {tasks, handleAddTask, handleToggleTask, handleRemoveTask}
+  return {
+    tasks,
+    totalTasks,
+    completedTaskCount,
+    activeTaskCount,
+    handleAddTask,
+    handleToggleTask,
+    handleRemoveTask,
+  };
 }
