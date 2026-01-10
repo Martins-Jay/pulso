@@ -32,8 +32,12 @@ function TaskInput({ onAddTask }) {
 
     if (!enteredTask) return;
 
+    const normalizedText = enteredTask.toLowerCase();
+    const formattedTask =
+      normalizedText.slice(0, 1).toUpperCase() + normalizedText.slice(1);
+
     // Forward the entered task to the parent so it can be used to update the state in the parent
-    onAddTask(enteredTask);
+    onAddTask(formattedTask);
 
     // Clear the input field
     taskInputRef.current.value = '';

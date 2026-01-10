@@ -7,11 +7,11 @@ function Dashboard() {
   // State to store all tasks
   const [tasks, setTasks] = useState([]);
 
-  function handleAddTask(enteredTask) {
+  function handleAddTask(formattedTask) {
     // Create a new task object
     const newTask = {
       id: Date.now(),
-      text: enteredTask,
+      text: formattedTask,
       isCompleted: false,
     };
 
