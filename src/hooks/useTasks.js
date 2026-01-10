@@ -6,7 +6,7 @@ export function useTasks() {
   // Derived state
   const totalTasks = tasks.length;
   const completedTaskCount = tasks.filter(
-    (taskObj) => taskObj.isCompleted !== false
+    (taskObj) => taskObj.isCompleted
   ).length;
   const activeTaskCount = totalTasks - completedTaskCount;
 
@@ -25,7 +25,9 @@ export function useTasks() {
   function handleToggleTask(selectedId) {
     setTasks((prevTasks) =>
       prevTasks.map((taskObj) =>
-        taskObj.id === selectedId ? { ...taskObj, isCompleted: true } : taskObj
+        taskObj.id === selectedId
+          ? { ...taskObj, isCompleted: !taskObj.isCompleted }
+          : taskObj
       )
     );
   }
