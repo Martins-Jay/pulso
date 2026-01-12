@@ -11,7 +11,6 @@ export function useTasks() {
   const activeTaskCount = totalTasks - completedTaskCount;
 
   function handleAddTask(formattedTask) {
-    // Create a new task object
     const newTask = {
       id: Date.now(),
       text: formattedTask,
@@ -38,6 +37,14 @@ export function useTasks() {
     );
   }
 
+  function handleEditTask(taskId, newEnteredTask) {
+    setTasks((prevTasks) =>
+      prevTasks.map((taskObj) =>
+        taskObj.id === taskId ? { ...taskObj, text: newEnteredTask } : taskObj
+      )
+    );
+  }
+
   return {
     tasks,
     totalTasks,
@@ -46,5 +53,6 @@ export function useTasks() {
     handleAddTask,
     handleToggleTask,
     handleRemoveTask,
+    handleEditTask,
   };
 }

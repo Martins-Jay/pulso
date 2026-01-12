@@ -98,3 +98,96 @@ Pulso isn’t just another todo app. It’s a personal system dashboard designed
 # Author
 
 Nnaukwu Martins Obinna – Aspiring Frontend Developer
+
+# My flow chart
+
+1. Entry flow
+
+```
+App Component Structure
+
+   App
+   └── Dashboard
+      ├── TaskInput
+      ├── Filter Buttons
+      └── TaskList
+         └── TaskItem (multiple)
+```
+
+Component Overview
+
+- App: Root component of the application
+- Dashboard: The controller and dosen't manage logic directly
+- TaskInput: Handles adding new tasks and sends the entered value to the parent (i.e dashboard)
+- Filter Buttons: Filters buttons to filter tasks
+- TaskList: Renders the list of tasks
+- TaskItem: Blueprint of a single taskItem (rendered multiple times)
+
+2. CUSTOM HOOK FLOW (useTasks which owns the source of truth)
+
+```
+   useTasks()
+   ├── useState(taskArr)
+   ├── Derived State
+   │     ├── totalTasks
+   │     ├── completedTaskCount
+   │     └── activeTaskCount
+   │
+   ├── handleAddTask()
+   ├── handleToggleTask()
+   └── handleRemoveTask()
+```
+
+3. Task creation flow
+
+```
+   User types text
+         ↓
+   Global keydown listener
+         ↓
+   TaskInput focuses input (useRef)
+         ↓
+   User presses Enter or clicks Add
+         ↓
+   submitTaskHandler()
+         ↓
+   Text normalization
+         ↓
+   onAddTask(formattedText)
+         ↓
+   handleAddTask() in useTasks
+         ↓
+   setTaskArr(prev => [...prev, newTask])
+         ↓
+   React re-renders
+```
+
+4. Responsibility
+
+```
+   TaskInput
+   - Handles input
+   - Keyboard UX
+   - Accessibility
+   - No state
+
+   TaskItem
+   - Displays ONE task
+   - Handles clicks
+   - No logic
+
+   TaskList
+   - Maps tasks
+   - Conditional rendering
+   - No state
+
+   Dashboard
+   - Coordinates components
+   - Holds filter state
+   - Consumes hook
+
+   useTasks
+   - Owns data
+   - Owns logic
+   - Exposes clean API
+```

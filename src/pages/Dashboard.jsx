@@ -13,6 +13,7 @@ function Dashboard() {
     handleAddTask,
     handleToggleTask,
     handleRemoveTask,
+    handleEditTask,
   } = useTasks();
 
   const [filter, setFilter] = useState('all');
@@ -60,6 +61,7 @@ function Dashboard() {
         tasks={filteredTask}
         onToggleTask={handleToggleTask}
         onRemoveTask={handleRemoveTask}
+        onEditTask={handleEditTask}
       />
     </section>
   );

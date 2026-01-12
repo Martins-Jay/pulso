@@ -5,6 +5,7 @@ function TaskInput({ onAddTask }) {
   // Ref to access the input DOM element without re-rendering
   const taskInputRef = useRef();
 
+  // Auto-focus input when Editing starts
   useEffect(function () {
     function handleGlobalKeydown(e) {
       // Focus input when user starts typing anywhere
@@ -21,14 +22,14 @@ function TaskInput({ onAddTask }) {
   }, []);
 
   function handleKeyDown(e) {
-    if (e.code === 'Enter') {
+    if (e.key === 'Enter') {
       submitTaskHandler();
     }
   }
 
   function submitTaskHandler() {
     // Get the task entered by the user
-    const enteredTask = taskInputRef.current.value;
+    const enteredTask = taskInputRef.current.value.trim();
 
     if (!enteredTask) return;
 
@@ -54,6 +55,7 @@ function TaskInput({ onAddTask }) {
       </label>
 
       <input
+        aria-label="Add new task"
         type="text"
         placeholder="Add a new task..."
         onKeyDown={handleKeyDown}
